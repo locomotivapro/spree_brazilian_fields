@@ -1,2 +1,19 @@
 pt-BR:
+  personal_account: Pessoa física
+  business_account: Pessoa jurídica
+  cpf: CPF
+  cnpj: CNPJ
+  company_name: Razão Social
+  state_registry: Inscrição Estadual
+  activerecord:
+    errors:
+      models:
+        spree/user:
+          attributes:
+            cpf:
+              not_present: não está presente
+              wrong_format: inválido
+            cnpj:
+              not_present: não está presente
+              wrong_format: inválido
   

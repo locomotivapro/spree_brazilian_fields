@@ -2,4 +2,20 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  personal_account: Personal Account
+  business_account: Bussines Account
+  cpf: CPF
+  cnpj: CNPJ
+  company_name: Company Name
+  state_registry: State Registry
+  activerecord:
+    errors:
+      models:
+        spree/user:
+          attributes:
+            cpf:
+              not_present: not present
+              wrong_format: invalid
+            cnpj:
+              not_present: not present
+              wrong_format: invalid

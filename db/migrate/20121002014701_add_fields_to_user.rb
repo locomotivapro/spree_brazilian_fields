@@ -4,6 +4,7 @@ class AddFieldsToUser < ActiveRecord::Migration
       t.string :cpf
       t.string :company_name
       t.string :cnpj
+      t.string :state_registry
       t.string :account_type
     end
   end

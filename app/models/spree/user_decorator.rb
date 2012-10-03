@@ -8,7 +8,7 @@ Spree::User.class_eval do
   validates_with CnpjValidator, :if => :business_account?
   validates_uniqueness_of :cnpj, :if => :business_account?
   
-  attr_accessible :cpf, :cnpj, :company_name, :account_type
+  attr_accessible :cpf, :cnpj, :company_name, :state_registry, :account_type
 
 private
   

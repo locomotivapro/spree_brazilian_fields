@@ -14,6 +14,12 @@ describe "User" do
       user.should be_valid
     end
     
+    it "should be valid with a valid cpf and with state_registry" do
+      user.cpf = DocGenerator.generate_cpf
+      user.state_registry = '1243123'
+      user.should be_valid
+    end
+    
     it "should be invalid with wrong cpf" do
       user.cpf = '11111111111'
       user.should be_invalid

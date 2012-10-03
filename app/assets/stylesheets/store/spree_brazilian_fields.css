@@ -1,3 +1,7 @@
 /*
  *= require store/spree_core
 */
+
+#business_box{
+  display:none;
+}

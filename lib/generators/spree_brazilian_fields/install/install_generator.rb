@@ -1,16 +1,17 @@
 module SpreeBrazilianFields
   module Generators
     class InstallGenerator < Rails::Generators::Base
-
-      def add_javascripts
-        append_file 'app/assets/javascripts/store/all.js', "//= require store/spree_brazilian_fields\n"
-        append_file 'app/assets/javascripts/admin/all.js', "//= require admin/spree_brazilian_fields\n"
-      end
-
-      def add_stylesheets
-        inject_into_file 'app/assets/stylesheets/store/all.css', " *= require store/spree_brazilian_fields\n", :before => /\*\//, :verbose => true
-        inject_into_file 'app/assets/stylesheets/admin/all.css', " *= require admin/spree_brazilian_fields\n", :before => /\*\//, :verbose => true
-      end
+      
+      # Dont use this generators because we include all stylesheets and javascripts directly on file to avoid unecessario loads
+      # def add_javascripts
+      #   append_file 'app/assets/javascripts/store/all.js', "//= require store/spree_brazilian_fields\n"
+      #   append_file 'app/assets/javascripts/admin/all.js', "//= require admin/spree_brazilian_fields\n"
+      # end
+      # 
+      # def add_stylesheets
+      #   inject_into_file 'app/assets/stylesheets/store/all.css', " *= require store/spree_brazilian_fields\n", :before => /\*\//, :verbose => true
+      #   inject_into_file 'app/assets/stylesheets/admin/all.css', " *= require admin/spree_brazilian_fields\n", :before => /\*\//, :verbose => true
+      # end
 
       def add_migrations
         run 'bundle exec rake railties:install:migrations FROM=spree_brazilian_fields'

@@ -3,12 +3,6 @@
   <%= radio_button "user", "account_type", "business" %> <%= t(:business_account) %>
 </p>
 
-<%= f.field_container :email do %>
-  <%= f.label :email, t(:email) %><br />
-  <%= f.email_field :email %>
-  <%= error_message_on :user, :email %>
-<% end %>
-
 <div id="personal_box">
   <%= f.field_container :cpf do %>
     <%= f.label :cpf, t(:cpf) %><br />
@@ -36,6 +30,12 @@
     <%= error_message_on :user, :company_name %>
   <% end %>
 </div>
+
+<%= f.field_container :email do %>
+  <%= f.label :email, t(:email) %><br />
+  <%= f.email_field :email %>
+  <%= error_message_on :user, :email %>
+<% end %>
 
 <div id="password-credentials">
   <%= f.field_container :password do %>

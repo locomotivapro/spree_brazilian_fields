@@ -16,3 +16,8 @@ Deface::Override.new(:virtual_path  => "spree/users/edit",
                   :insert_after => "code[erb-loud]:contains('form_for')",
                   :text          => "<%= render(:partial => 'spree/shared/brazilian_user_form', :locals => { :f => f }) %>",
                   :name          => "edit_brazilian_user_form")
+                  
+Deface::Override.new(:virtual_path  => "spree/admin/users/_form",
+                  :replace => "div[data-hook=admin_user_form_fields]",
+                  :partial          => "spree/admin/users/brazilian_form",
+                  :name          => "admin_edit_brazilian_user_form")

@@ -3,13 +3,13 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_brazilian_fields'
   s.version     = '1.1.2'
-  s.summary     = 'TODO: Add gem summary here'
-  s.description = 'TODO: Add (optional) gem description here'
+  s.summary     = 'Add brazilian fields to spree app'
+  s.description = 'Add brazilian fields and a verification if account is personal (cpf required) or bussines (cnpj and company name required)'
   s.required_ruby_version = '>= 1.8.7'
 
-  # s.author    = 'You'
-  # s.email     = 'you@example.com'
-  # s.homepage  = 'http://www.spreecommerce.com'
+  s.author    = 'Denis Tierno'
+  s.email     = 'de.tierno@gmail.com'
+  s.homepage  = 'http://locomotiva.pro'
 
   #s.files       = `git ls-files`.split("\n")
   #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")

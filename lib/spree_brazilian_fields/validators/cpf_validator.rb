@@ -1,22 +1,23 @@
 class CpfValidator < ActiveModel::Validator
   def validate(record)
     # return false if record.cpf.nil?
-    
+    field = options[:field].present? ? options[:field] : :cpf
+
     nulos = %w{12345678909 11111111111 22222222222 33333333333 44444444444 55555555555 66666666666 77777777777 88888888888 99999999999 00000000000}
 
-    if !record.cpf.present? || record.cpf.nil?
-      record.errors.add(:cpf, :not_present) 
-      return false 
+    if !record.send(field).present? || record.send(field).nil?
+      record.errors.add(field, :not_present)
+      return false
     end
 
 
-    record.cpf = record.cpf.gsub(/[^0-9]/,'')
-    unless record.cpf.length == 11
-      record.errors.add(:cpf, :wrong_format) 
+    record.send("#{field.to_s}=", record.send(field).gsub(/[^0-9]/,''))
+    unless record.send(field).length == 11
+      record.errors.add(field, :wrong_format)
       return false
-    end  
+    end
 
-    valor = record.cpf.scan /[0-9]/
+    valor = record.send(field).scan /[0-9]/
     if valor.length == 11
       unless nulos.member?(valor.join)
         valor = valor.collect{|x| x.to_i}
@@ -31,6 +32,6 @@ class CpfValidator < ActiveModel::Validator
         end
       end
     end
-    record.errors.add(:cpf, :invalid) # Invalid
+    record.errors.add(field, :invalid) # Invalid
   end
 end

@@ -1,21 +1,22 @@
-class CnpjValidator < ActiveModel::Validator  
+class CnpjValidator < ActiveModel::Validator
   def validate(record)
     # return false if record.cnpj.nil?
+    field = options[:field].present? ? options[:field] : :cnpj
 
     nulosb = %w{11111111111111 22222222222222 33333333333333 44444444444444 55555555555555 66666666666666 77777777777777 88888888888888 99999999999999 00000000000000}
 
-    if !record.cnpj.present? || record.cnpj.nil?
-      record.errors.add(:cnpj, :not_present) 
-      return false 
-    end
-
-    record.cnpj = record.cnpj.gsub(/[^0-9]/,'')
-    unless record.cnpj.length == 14
-      record.errors.add(:cnpj, :wrong_format) 
+    if !record.send(field).present? || record.send(field).nil?
+      record.errors.add(field, :not_present)
       return false
     end
 
-    valorb = record.cnpj.scan /[0-9]/
+    record.send("#{field.to_s}=", record.send(field).gsub(/[^0-9]/,''))
+    unless record.send(field).length == 14
+      record.errors.add(field, :wrong_format)
+      return false
+    end
+
+    valorb = record.send(field).scan /[0-9]/
     if valorb.length == 14
       unless nulosb.member?(valorb.join)
         valorb = valorb.collect{|x| x.to_i}
@@ -30,7 +31,7 @@ class CnpjValidator < ActiveModel::Validator
         end
       end
     end
-    record.errors.add(:cnpj, :invalid)
-    
+    record.errors.add(field, :invalid)
+
   end
 end

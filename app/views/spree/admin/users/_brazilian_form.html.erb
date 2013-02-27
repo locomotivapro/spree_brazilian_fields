@@ -14,16 +14,16 @@
 <div id="business_box">
   <%= f.field_container :cnpj do %>
     <%= f.label :cnpj, t(:cnpj) %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :cnpj %>
     <%= error_message_on :user, :cnpj %>
   <% end %>
-  
+
   <%= f.field_container :state_registry do %>
     <%= f.label :state_registry, t(:state_registry) %><br />
     <%= f.text_field :state_registry %>
     <%= error_message_on :user, :state_registry %>
   <% end %>
-  
+
   <%= f.field_container :company_name do %>
     <%= f.label :company_name, t(:company_name) %><br />
     <%= f.text_field :company_name %>

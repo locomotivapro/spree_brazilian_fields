@@ -27,4 +27,4 @@ jQuery ->
       enable '#user_cpf'
 
   $(document).ready(toggle_fields)
-  $('[data_user_account_type]').click(toggle_fields)
+  $('[data-user-selector]').click(toggle_fields)

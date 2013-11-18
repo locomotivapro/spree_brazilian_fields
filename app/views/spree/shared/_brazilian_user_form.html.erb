@@ -1,6 +1,6 @@
 <p id="user_account_type_box">
-  <%= radio_button "user", "account_type", "personal", {:checked => true } %> <%= t(:personal_account) %>
-  <%= radio_button "user", "account_type", "business" %> <%= t(:business_account) %>
+  <%= radio_button "user", "account_type", "personal", {:checked => true , :'data-user-selector' => 'user-account-selector'} %> <%= t(:personal_account) %>
+  <%= radio_button "user", "account_type", "business", :'data-user-selector' => 'user-account-selector' %> <%= t(:business_account) %>
 </p>
 
 <p>

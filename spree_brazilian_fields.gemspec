@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version     = '1.1.2'
   s.summary     = 'Add brazilian fields to spree app'
   s.description = 'Add brazilian fields and a verification if account is personal (cpf required) or bussines (cnpj and company name required)'
-  s.required_ruby_version = '>= 1.8.7'
+  s.required_ruby_version = '>= 1.9.3'
 
   s.author    = 'Denis Tierno'
   s.email     = 'de.tierno@gmail.com'
@@ -16,14 +16,17 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 1.1.2'
-  s.add_dependency 'spree_auth', '~> 1.1.2'
+  s.add_dependency 'spree_core', '~> 2.1.6'
 
-  s.add_development_dependency 'capybara', '1.0.1'
-  s.add_development_dependency 'factory_girl', '~> 2.6.4'
+  s.add_development_dependency 'capybara', '~> 2.1'
+  s.add_development_dependency 'coffee-rails'
+  s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'factory_girl', '~> 4.4'
   s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'launchy'
-  s.add_development_dependency 'rspec-rails',  '~> 2.9'
+  s.add_development_dependency 'rspec-rails',  '~> 2.13'
+  s.add_development_dependency 'sass-rails'
+  s.add_development_dependency 'selenium-webdriver'
+  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'guard-rspec', '~> 0.5.0'
+  s.add_development_dependency 'guard-rspec'
 end

@@ -20,6 +20,10 @@ Or install it yourself as:
     $ gem install spree_brazilian_fields
 
 
+And then run to copy the gems migrations to your app
+
+    $ rails generate spree_brazilian_fields:install
+
 Testing
 -------
 

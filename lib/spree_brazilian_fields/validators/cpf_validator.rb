@@ -10,7 +10,6 @@ class CpfValidator < ActiveModel::Validator
       return false
     end
 
-
     record.send("#{field.to_s}=", record.send(field).gsub(/[^0-9]/,''))
     unless record.send(field).length == 11
       record.errors.add(field, :wrong_format)

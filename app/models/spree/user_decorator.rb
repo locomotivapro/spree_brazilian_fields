@@ -5,6 +5,7 @@ Spree::User.class_eval do
   validates_uniqueness_of :cpf, :if => :personal_account?
 
   validates_presence_of :company_name, :if => :business_account? 
+  validates_presence_of :state_registry, :if => :business_account? 
   validates_with CnpjValidator, :if => :business_account?
   validates_uniqueness_of :cnpj, :if => :business_account?
   

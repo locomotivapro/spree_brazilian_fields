@@ -1,0 +1,24 @@
+<!-- insert_before "#password-credentials" -->
+<fieldset id="brazilian_fields">
+  <p id="user_account_type_box">
+    <% checked = f.object.account_type == "personal" ? true : false %>
+    <%= radio_button "spree_user", "account_type", "personal", {:checked => checked } %> <%= Spree.t(:personal_account) %>
+    <%= radio_button "spree_user", "account_type", "business", { :checked => !checked } %> <%= Spree.t(:business_account) %>
+  </p>
+
+  <div class="form-group" id="personal_box">
+    <%= f.text_field :cpf, :class => 'form-control', placeholder: Spree.t(:cpf) %>
+  </div>
+
+  <div id="business_box">
+    <div class="form-group">
+      <%= f.text_field :cnpj, :class => 'form-control', placeholder: Spree.t(:cnpj) %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :state_registry, :class => 'form-control', placeholder: Spree.t(:state_registry) %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :company_name, :class => 'form-control', placeholder: Spree.t(:company_name) %>
+    </div>
+  </div>
+</fieldset>

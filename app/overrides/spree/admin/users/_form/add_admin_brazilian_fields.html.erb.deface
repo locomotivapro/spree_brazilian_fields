@@ -1,0 +1,34 @@
+<!-- insert_top '[data-hook="admin_user_form_fields"] .col-md-6:first-child' -->
+
+<p id="user_account_type_box">
+  <%= radio_button "user", "account_type", "personal", {:checked => true } %> <%= t(:personal_account) %>
+  <%= radio_button "user", "account_type", "business" %> <%= t(:business_account) %>
+</p>
+
+<div id="personal_box">
+  <%= f.field_container :cpf, class: ['form-group'] do %>
+    <%= f.label :cpf, Spree.t(:cpf) %>
+    <%= f.text_field :cpf, :class => 'form-control' %>
+    <%= error_message_on :user, :cpf %>
+  <% end %>
+</div>
+
+<div id="business_box">
+  <%= f.field_container :cnpj, class: ['form-group'] do %>
+    <%= f.label :cnpj, Spree.t(:cnpj) %>
+    <%= f.text_field :cnpj, :class => 'form-control' %>
+    <%= error_message_on :user, :cnpj %>
+  <% end %>
+
+  <%= f.field_container :state_registry, class: ['form-group'] do %>
+    <%= f.label :state_registry, Spree.t(:state_registry) %>
+    <%= f.text_field :state_registry, :class => 'form-control' %>
+    <%= error_message_on :user, :state_registry %>
+  <% end %>
+
+  <%= f.field_container :company_name, class: ['form-group'] do %>
+    <%= f.label :company_name, Spree.t(:company_name) %>
+    <%= f.text_field :company_name, :class => 'form-control' %>
+    <%= error_message_on :user, :company_name %>
+  <% end %>
+</div>

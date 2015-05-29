@@ -1,4 +1,4 @@
-Spree::User.class_eval do
+Spree.user_class.class_eval do
   validates_inclusion_of :account_type, :in => %w(personal business)
 
   validates_with CpfValidator, :if => :personal_account?

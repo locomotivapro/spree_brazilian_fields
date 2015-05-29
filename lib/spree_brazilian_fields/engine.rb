@@ -12,6 +12,8 @@ module SpreeBrazilianFields
     end
 
     def self.activate
+      Spree::PermittedAttributes.user_attributes.push :cpf, :cnpj, :account_type, :state_registry, :company_name
+
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end

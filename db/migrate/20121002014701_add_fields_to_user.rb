@@ -1,6 +1,7 @@
 class AddFieldsToUser < ActiveRecord::Migration
   def change
-    change_table :spree_users do |t|
+    table_name = Spree.user_class.table_name.to_sym || :spree_users
+    change_table table_name do |t|
       t.string :cpf
       t.string :company_name
       t.string :cnpj

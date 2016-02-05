@@ -2,8 +2,8 @@
 <fieldset id="brazilian_fields">
   <p id="user_account_type_box">
     <% checked = f.object.account_type == "business" ? true : false %>
-    <%= radio_button "spree_user", "account_type", "personal", {:checked => !checked } %> <%= Spree.t(:personal_account) %>
-    <%= radio_button "spree_user", "account_type", "business", { :checked => checked } %> <%= Spree.t(:business_account) %>
+    <%= f.radio_button  :account_type, "personal", {:checked => !checked } %> <%= Spree.t(:personal_account) %>
+    <%= f.radio_button  :account_type, "business", { :checked => checked } %> <%= Spree.t(:business_account) %>
   </p>
 
   <div class="form-group" id="personal_box">

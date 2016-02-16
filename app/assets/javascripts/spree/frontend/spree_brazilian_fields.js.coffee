@@ -7,24 +7,25 @@ jQuery ->
     $(field).prop('disabled', false)
 
   toggle_fields =->
-    if $('#spree_user_account_type_business').is(':checked')
+    if $('[id*=account_type_business]').is(':checked')
       $('#personal_box').hide()
       $('#business_box').show()
 
-      disable '#spree_user_cpf'
+      disable '#personal_box [id*=cpf]'
 
-      enable '#spree_user_company_name'
-      enable '#spree_user_cnpj'
-      enable '#spree_user_state_registry'
+      enable '#business_box [id*=company_name]'
+      enable '#business_box [id*=cnpj]'
+      enable '#business_box [id*=state_registry]'
     else
       $('#personal_box').show()
       $('#business_box').hide()
 
-      disable '#spree_user_company_name'
-      disable '#spree_user_cnpj'
-      disable '#spree_user_state_registry'
+      disable '#business_box [id*=company_name]'
+      disable '#business_box [id*=cnpj]'
+      disable '#business_box [id*=state_registry]'
 
-      enable '#spree_user_cpf'
+      enable '#personal_box [id*=cpf]'
 
   $(document).ready(toggle_fields)
-  $('[name="spree_user[account_type]"]').click(toggle_fields)
+  $('[name*="[account_type]"]').click(toggle_fields)
+
